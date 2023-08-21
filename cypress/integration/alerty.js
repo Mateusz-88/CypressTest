@@ -16,7 +16,7 @@ describe("Alrety", () => {
 
         // cy.get("#alert").click()
         cy.on("window:alert", tresc => {
-            expect(tresc).to.equal("Przykładowa treść alertu")
+            expect(tresc).to.equal("Przykładowa treść alertu2")
         })
     });
 
