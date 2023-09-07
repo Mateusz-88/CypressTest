@@ -1,4 +1,5 @@
 import 'cypress-file-upload'
+import "@cypress-audit/lighthouse/commands";
 
 // ***********************************************
 // This example commands.js shows you how to

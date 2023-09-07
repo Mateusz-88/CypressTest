@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "open": "npx cypress open"
+    "open": "npx cypress open",
+    "all": "npx cypress run",
+    "spec": "npx cypress run --spec 'cypress/integration/klikniecie.js' --headed",
+    "chrome": "npx cypress run --browser chrome --spec 'cypress/integration/klikniecie.js' --headed",
+    "edge": "npm run spec -- --browser edge",
+    "browser": "npm run spec -- --browser edge & npm run spec -- --browser chrome"
   },
   "keywords": [
     "cypress",
@@ -14,7 +19,9 @@
   "author": "Mateusz Korzeniak",
   "license": "ISC",
   "devDependencies": {
+    "@cypress-audit/lighthouse": "^1.4.2",
     "cypress": "^9.5.1",
+    "cypress-dark": "^1.8.3",
     "cypress-file-upload": "^5.0.8"
   }
 }

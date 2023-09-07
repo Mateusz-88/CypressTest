@@ -16,7 +16,31 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
+
+// promisified fs module
+const fs = require('fs-extra')
+const path = require('path')
+
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve('cypress', 'config', `${file}.json`)
+
+  return fs.readJson(pathToConfigFile)
 }
+
+module.exports = (on, config) => {
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions);
+  });
+
+  on("task", {
+    lighthouse: lighthouse(), // calling the function is important
+  });
+
+  // accept a configFile value or use development by default
+  const file = config.env.configFile || 'development'
+
+  return getConfigurationByFile(file)
+
+
+};
