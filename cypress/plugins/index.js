@@ -17,6 +17,9 @@
  */
 // eslint-disable-next-line no-unused-vars
 const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
+const { initPlugin } = require('cypress-plugin-snapshots/plugin');
+
+
 
 // promisified fs module
 const fs = require('fs-extra')
@@ -37,10 +40,16 @@ module.exports = (on, config) => {
     lighthouse: lighthouse(), // calling the function is important
   });
 
+
+
+
+
   // accept a configFile value or use development by default
   const file = config.env.configFile || 'development'
 
-  return getConfigurationByFile(file)
+  getConfigurationByFile(file)
 
+  initPlugin(on, config);
+  return config;
 
 };
