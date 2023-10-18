@@ -1,12 +1,13 @@
 {
-    "baseUrl": "http://automationpractice.pl",
-    "includeShadowDom": false,
-    "chromeWebSecurity": true,
-    "viewportHeight": 1080,
-    "viewportWidth": 1920,
-    "video": false,
-    "reporter": "cypress-multi-reporters",
-    "reporterOptions": {
-        "configFile": "reporter-config.json"
-    }
+  "baseUrl": "http://automationpractice.pl",
+  "includeShadowDom": false,
+  "chromeWebSecurity": true,
+  "viewportHeight": 1080,
+  "viewportWidth": 1920,
+  "video": false,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "reporter-config.json"
+  },
+  "projectId": "td4wac"
 }
